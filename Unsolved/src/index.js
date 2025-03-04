@@ -1,6 +1,7 @@
-import pool from 'connection.js';
+import pg from './connection.js';
 import inquirer from 'inquirer';
 import queries from 'queries.js';
+
 
 const mainMenu = async () => {
     const { choice } = await inquirer.prompt([
