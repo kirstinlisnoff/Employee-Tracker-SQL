@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "inquirer": "^12.4.2"
-  }
+    "inquirer": "^12.4.2",
+    "pg": "^8.13.3"
+  },
+  "type": "module"
 }
