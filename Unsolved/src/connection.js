@@ -12,6 +12,7 @@ const pool = new Pool({
     database: process.env.DB_NAME,
     port: 5432,
 });
+
 const connectToDb = async () => {
     try {
         await pool.connect();

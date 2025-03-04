@@ -1,6 +1,6 @@
 import pg from './connection.js';
 import inquirer from 'inquirer';
-import queries from 'queries.js';
+import queries from './queries.js';
 
 
 const mainMenu = async () => {
