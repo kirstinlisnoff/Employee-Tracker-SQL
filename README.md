@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description 
- This comman-line application functions as an accessible and interactive employee database, using Node.js, Inquirer, and PostgreSQL. Users are able to select from a list of options to view different categories in the database such as departments and employees, as well as updating certain tasks and adding new ones.
+ This command-line application functions as an accessible and interactive employee database using Node.js, Inquirer, and PostgreSQL. Users are able to select from a list of options to view different categories in the database such as departments and employees, as well as updating certain tasks and adding new ones.
 
 ## Table of Contents
 * [Installation](#installation)
