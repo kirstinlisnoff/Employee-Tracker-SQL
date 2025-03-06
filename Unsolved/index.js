@@ -24,8 +24,8 @@ const mainMenu = async () => {
 
     switch (choice) {
         case 'View All Employees':
-            await viewEmployees(pool);
-            console.table(employee);
+            const employees = await viewEmployees(pool);
+            console.table(employees);
             break;
         case 'Add Employee':
             await addEmployee(pool);
@@ -34,13 +34,15 @@ const mainMenu = async () => {
             await updateRole(pool);
             break;
         case 'View All Roles':
-            await viewRoles(pool);
+            const roles = await viewRoles(pool);
+            console.table(roles);
             break;
         case 'Add Role':
             await addRole(pool);
             break;
         case 'View All Departments':
-            await viewDepartments(pool);
+            const departments = await viewDepartments(pool);
+            console.table(departments);
             break;
         case 'Add Department':
             await addDepartment(pool);
