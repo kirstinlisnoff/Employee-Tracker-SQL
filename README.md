@@ -19,7 +19,7 @@ Users must install the inquirer package, dotenv package and pg package. This can
  ```node index.js``` will run the application.
 
 ## Usage 
-Users will use the command line to submit the command node index.js to use the application. They will then be prompted with a list of choices where they will utilizse the up and down arrow keys to select their desired action.
+Users will use the command line to submit the command node index.js to use the application. They will then be prompted with a list of choices where they will utilize the up and down arrow keys to select their desired action.
 
 
 https://github.com/user-attachments/assets/e43cf95f-cb19-4487-b754-954bd31eb0a4
