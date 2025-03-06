@@ -1,4 +1,4 @@
-import pool from './connection.js';
+import { pool } from '/Users/kirstinnoff/Desktop/repositories/github/HW10-SQL/Unsolved/connection.js';
 import inquirer from 'inquirer';
 
 const viewDepartments = async () => {
@@ -15,7 +15,7 @@ const viewRoles = async () => {
 const viewEmployees = async () => {
     const result = await pool.query(`
          SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, 
-             CONTACT(manager.first_name || ' ' || manager.last_name, 'None') AS manager
+             COALESCE(manager.first_name || ' ' || manager.last_name, 'None') AS manager
       FROM employee
       JOIN role ON employee.role_id = role.id
       JOIN department ON role.department_id = department.id
@@ -35,7 +35,7 @@ const addDepartment = async () => {
         await pool.query('INSERT INTO department (name) VALUES ($1)', [departmentName]);
         console.log(`Department "${departmentName}" successfully created.`)
     } catch (error) {
-        console.error('Error creating department.');
+        console.error('Error creating department.', error.message);
     }
 }
 
@@ -56,7 +56,7 @@ const addRole = async () => {
         },
         {
             type: 'list',
-            name: 'title',
+            name: 'department_id',
             message: 'Select the department for the new role',
             choices: departmentChoices
         },
@@ -71,10 +71,10 @@ const addRole = async () => {
 
 const addEmployee = async () => {
     const roles = await pool.query("SELECT * FROM role");
-    const roleChoices = roles.rows.map(role => ({name: role.title, value: dept.id }));
+    const roleChoices = roles.rows.map(role => ({name: role.title, value: role.id }));
 
     const employees = await pool.query("SELECT * FROM employee");
-    const managerChoices = employees.rows.map(emp => ({name: `${emp.first_name} ${emp.last_name}`, value: dept.id }));
+    const managerChoices = employees.rows.map(emp => ({name: `${emp.first_name} ${emp.last_name}`, value: emp.id }));
     managerChoices.unshift({name: "None", value: null})
 
     const { firstName, lastName, role_id, manager_id } = await inquirer.prompt([
